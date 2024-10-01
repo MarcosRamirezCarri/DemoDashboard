@@ -1,0 +1,33 @@
+export interface DataEstablishment {
+    establishment_id: number;
+    name: string;
+    type: string;
+    neighborhood: string;
+    latitude: number;
+    longitude: number;
+    total_bed_capacity: number;
+    date: string;
+    occupancy_rate: number;
+    length_of_stay: number;
+    booking_lead_time: number;
+    cancellation_rate: number;
+    room_rate: number;
+    revenue_per_occupied_room: number;
+    booking_channel: string;
+    guest_age_group: string;
+    guest_nationality: string;
+    purpose_of_visit: string;
+    season: string;
+    event_name: string | null;
+    event_type: string | null;
+    temperature: number;
+    rainfall: number;
+    daylight_hours: number;
+    nearby_amenities_count: number;
+    proximity_to_transport: number;
+    perceived_safety_score: number;
+    local_employment_rate: number;
+    housing_market_price_index: number;
+    economic_activity_level: number;
+    uptDate?: string;
+}

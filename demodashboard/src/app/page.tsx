@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Navbar from "./NavBar/Navbar";
-import Dashboard from "./dashboard/Dashboard";
+import Dashboard from "./dashboard/[view]";
 
 export default function Home() {
   return (

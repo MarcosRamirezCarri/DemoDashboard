@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import { cx, focusRing } from "@/lib/utils"
+import { cx, focusRing } from "@/lib/hooks/utils"
 
 type Bar<T> = T & {
   key?: string

@@ -23,9 +23,9 @@ import {
   constructCategoryColors,
   getColorClassName,
   getYAxisDomain,
-} from "../../../lib/charUtils"
-import { useOnWindowResize } from "../../../lib/onWindowsResize"
-import { cx } from "@/lib/utils"
+} from "../../../lib/hooks/charUtils"
+import { useOnWindowResize } from "../../../lib/hooks/onWindowsResize"
+import { cx } from "@/lib/hooks/utils"
 
 //#region Shape
 

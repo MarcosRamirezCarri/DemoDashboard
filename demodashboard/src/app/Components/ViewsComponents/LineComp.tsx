@@ -1,5 +1,14 @@
 import { LineChart } from "@/app/Components/Charts/LineChart"
 
+interface LineCompProp{
+data:{
+  name: string,
+  value: any
+}[]
+  
+
+}
+
 const chartdata = [
     {
       date: "Jan 23",
@@ -64,7 +73,7 @@ const chartdata = [
   ]
   
 
-const LineComponent = () =>{
+const LineComponent: React.FC<LineCompProp> = ({data}) =>{
     return (
         <div className="flex flex-col row-span-2 col-span-2 bg-blue-50 items-center justify-center gap-4">
             <LineChart

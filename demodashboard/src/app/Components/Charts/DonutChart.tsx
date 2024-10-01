@@ -1,3 +1,6 @@
+// Tremor DonutChart [v0.0.1]
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client"
 
 import React from "react"
@@ -14,8 +17,8 @@ import {
   AvailableChartColorsKeys,
   constructCategoryColors,
   getColorClassName,
-} from "../../../lib/charUtils"
-import { cx } from "@/lib/utils"
+} from "@/lib/hooks/charUtils"
+import { cx } from "@/lib/hooks/utils"
 
 const sumNumericArray = (arr: number[]): number =>
   arr.reduce((sum, num) => sum + num, 0)
@@ -186,6 +189,7 @@ const DonutChart = React.forwardRef<HTMLDivElement, DonutChartProps>(
     },
     forwardedRef,
   ) => {
+    console.log(category)
     const CustomTooltip = customTooltip
     const [activeIndex, setActiveIndex] = React.useState<number | undefined>(
       undefined,
