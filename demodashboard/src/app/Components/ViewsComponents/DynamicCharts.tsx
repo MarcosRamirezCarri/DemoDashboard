@@ -5,9 +5,19 @@ import { BarChart } from "../Charts/BarChart";
 import { LineChart } from "../Charts/LineChart";
 import { DataEstablishment } from "@/lib/Types";
 
-
 interface DynamicChartProp {
-  data: DataEstablishment[];
+  data:
+    | DataEstablishment[]
+    | {
+        bookingType: string;
+        count: number;
+        percentage: number
+      }[]
+    | {
+        nationality: string;
+        count: number;
+        percentage: number
+      }[];
   chartConfig: {
     type: "line" | "bar" | "area" | "donut";
     title: string;
@@ -23,20 +33,22 @@ const DynamicChart: React.FC<DynamicChartProp> = ({ data, chartConfig }) => {
         <div className="flex flex-col bg-blue-50 justify-center p-5 items-center rounded-md shadow-xl">
           <p>{chartConfig.title}</p>
           {chartConfig.type === "area" ? (
-             <AreaChart
-                data={data}
-                index={chartConfig.index}
-                categories={[chartConfig.field]}
-                yAxisWidth={40}
-                startEndOnly
-                connectNulls
-                showLegend={false}
-                showTooltip={true}
-              />
+            <AreaChart
+              data={data}
+              
+              index={chartConfig.index}
+              categories={[chartConfig.field]}
+              yAxisWidth={40}
+              startEndOnly
+              connectNulls
+              showLegend={false}
+              showTooltip={true}
+            />
           ) : chartConfig.type === "bar" ? (
             <BarChart
               data={data}
               index={chartConfig.index}
+              
               categories={chartConfig.field}
               yAxisWidth={40}
               startEndOnly
@@ -46,16 +58,24 @@ const DynamicChart: React.FC<DynamicChartProp> = ({ data, chartConfig }) => {
             />
           ) : null}
           {chartConfig.type === "donut" ? (
-            <DonutChart
-            variant="pie"
+         
+ <DonutChart
+              variant="pie"
               data={data}
+              valueFormatter={(number: number) =>
+                `${Intl.NumberFormat().format(number).toString()}%`
+              }
               category={chartConfig.index}
               value={chartConfig.field}
             />
+           
+ 
+           
           ) : null}
           {chartConfig.type === "line" ? (
             <LineChart
               data={data}
+    
               categories={[chartConfig.field]}
               index={chartConfig.index}
               valueFormatter={(number: number) =>
